@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Закрытие заявки #{{ application.application_id }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Закрытие заявки #{{ application.application_id }}</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="minutes">Время выполнения (минуты):</label>
+                <input type="number" class="form-control" id="minutes" name="minutes" required>
+            </div>
+            <div class="form-group">
+                <label for="seconds">Время выполнения (секунды):</label>
+                <input type="number" class="form-control" id="seconds" name="seconds" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Закрыть заявку</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Назад к списку заявок</a>
+    </div>
+</body>
+</html>

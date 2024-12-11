@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Комментарии к заявке #{{ application_id }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Комментарии к заявке #{{ application_id }}</h2>
+
+        <h3>Существующие комментарии:</h3>
+        <ul>
+            {% for comment in comments %}
+                <li>{{ comment.date_added }}: {{ comment.text }}</li>
+            {% endfor %}
+        </ul>
+
+        <h4>Добавить комментарий:</h4>
+        <form method="POST">
+            <div class="form-group">
+                <textarea class="form-control" name="comment" placeholder="Введите ваш комментарий..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить комментарий</button>
+        </form>
+
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Назад к списку заявок</a>
+    </div>
+</body>
+</html>

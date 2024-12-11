@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика заявок</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Статистика заявок</h2>
+        <p><strong>Количество выполненных заявок:</strong> {{ total_completed }}</p>
+        <p><strong>Среднее время выполнения заявки:</strong> {{ average_minutes }} минут(ы) {{ average_seconds }} секунд(ы)</p>
+        <h3>Статистика по типам неисправностей:</h3>
+        <ul>
+            {% for fault_type, count in fault_types.items() %}
+                <li>{{ fault_type }}: {{ count }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Назад к списку заявок</a>
+    </div>
+    
+</body>
+</html>
